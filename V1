@@ -224,7 +224,7 @@ local Section = MainTab:AddSection({
 	Name = "Other"
 })
 
-Tab:AddButton({
+MainTab:AddButton({
 	Name = "Destrot GUI",
 	Callback = function()
       		print("Mapple Destroyed")
