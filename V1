@@ -50,6 +50,8 @@ function autofarmBuild()
             Teleport(game:GetService("Workspace").BoatStages.NormalStages.CaveStage9.DarknessPart.CFrame)
             wait(.5)
             Teleport(game:GetService("Workspace").BoatStages.NormalStages.CaveStage10.DarknessPart.CFrame)
+            wait(.5)
+            Teleport(game:GetService("Workspace").BoatStages.NormalStages.TheEnd.GoldenChest.Trigger.CFrame)
             wait(10)
     end
 end
@@ -225,7 +227,7 @@ local Section = MainTab:AddSection({
 })
 
 MainTab:AddButton({
-	Name = "Destrot GUI",
+	Name = "Destroy GUI",
 	Callback = function()
       		print("Mapple Destroyed")
          OrionLib:Destroy()
