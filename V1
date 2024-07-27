@@ -52,7 +52,7 @@ function autofarmBuild()
             Teleport(game:GetService("Workspace").BoatStages.NormalStages.CaveStage10.DarknessPart.CFrame)
             wait(.5)
             Teleport(game:GetService("Workspace").BoatStages.NormalStages.TheEnd.GoldenChest.Trigger.CFrame)
-            wait(10)
+            wait(20)
     end
 end
 
