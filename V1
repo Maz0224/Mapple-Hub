@@ -1,0 +1,345 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "Mapple Hub", HidePremium = false, IntroText = "Mapple Hub", SaveConfig = true, ConfigFolder = "OrionTest"})
+
+
+--BOOLS/VALS--
+
+getgenv().TPPlace = "string"
+
+_G.autofarmBab = true
+
+_G.autofarmPunch = true
+
+_G.autogetegg1Punch = true
+
+_G.autogetegg2Punch = true
+
+_G.autoequipPunch = true
+
+_G.autogetbestglovePunch = true
+
+_G.autoaccesndPunch = true
+
+
+
+--FUNCTIONS--
+
+function Teleport(teleportPlace)
+    local player = game.Players.LocalPlayer
+    player.Character.HumanoidRootPart.CFrame = teleportPlace
+end
+
+function autofarmBuild()
+    while _G.autofarmBab == true do
+          	Teleport(game:GetService("Workspace").BoatStages.NormalStages.CaveStage1.DarknessPart.CFrame)
+            wait(.5)
+            Teleport(game:GetService("Workspace").BoatStages.NormalStages.CaveStage2.DarknessPart.CFrame)
+            wait(.5)
+            Teleport(game:GetService("Workspace").BoatStages.NormalStages.CaveStage3.DarknessPart.CFrame)
+            wait(.5)
+            Teleport(game:GetService("Workspace").BoatStages.NormalStages.CaveStage4.DarknessPart.CFrame)
+            wait(.5)
+            Teleport(game:GetService("Workspace").BoatStages.NormalStages.CaveStage5.DarknessPart.CFrame)
+            wait(.5)
+            Teleport(game:GetService("Workspace").BoatStages.NormalStages.CaveStage6.DarknessPart.CFrame)
+            wait(.5)
+            Teleport(game:GetService("Workspace").BoatStages.NormalStages.CaveStage7.DarknessPart.CFrame)
+            wait(.5)
+            Teleport(game:GetService("Workspace").BoatStages.NormalStages.CaveStage8.DarknessPart.CFrame)
+            wait(.5)
+            Teleport(game:GetService("Workspace").BoatStages.NormalStages.CaveStage9.DarknessPart.CFrame)
+            wait(.5)
+            Teleport(game:GetService("Workspace").BoatStages.NormalStages.CaveStage10.DarknessPart.CFrame)
+            wait(10)
+    end
+end
+
+
+function autofarmPunch()
+    while _G.autofarmPunch == true do
+        game:GetService("ReplicatedStorage").Events.DamageIncreaseOnClickEvent:FireServer()
+        wait(0.000000000000000000000000000000000000000000001)
+    end
+end
+
+----------
+
+function autogetegg1Punch()
+    while _G.autogetegg1Punch == true do
+local args = {
+    [1] = "1"
+}
+
+game:GetService("ReplicatedStorage").Events.PlayerPressedKeyOnEgg:FireServer(unpack(args))
+
+        wait(5)
+    end
+end
+
+function autogetegg2Punch()
+    while _G.autogetegg2Punch == true do
+    local args = {
+    [1] = "Forest2"
+}
+
+game:GetService("ReplicatedStorage").Events.PlayerPressedKeyOnEgg:FireServer(unpack(args))
+
+        wait (5)
+    end
+end
+
+----------
+
+function autogetbestglovePunch()
+    while _G.autogetbestglovePunch == true do
+        
+        local args = {
+    [1] = "Wood"
+}
+
+game:GetService("ReplicatedStorage").Events.ClickedGlovesButton:FireServer(unpack(args))
+        
+        wait(1)
+        
+        local args = {
+    [1] = "OP"
+}
+
+game:GetService("ReplicatedStorage").Events.ClickedGlovesButton:FireServer(unpack(args))
+
+        wait(1)
+
+        local args = {
+    [1] = "Iron"
+}
+
+game:GetService("ReplicatedStorage").Events.ClickedGlovesButton:FireServer(unpack(args))
+
+        wait(1)
+
+        local args = {
+    [1] = "Gold"
+}
+
+game:GetService("ReplicatedStorage").Events.ClickedGlovesButton:FireServer(unpack(args))
+
+        wait(1)
+
+        local args = {
+    [1] = "Emerald"
+}
+
+game:GetService("ReplicatedStorage").Events.ClickedGlovesButton:FireServer(unpack(args))
+
+        wait(10)
+
+    end
+end
+
+
+
+function autoequipPunch()
+    while _G.autoequipPunch == true do
+       game:GetService("ReplicatedStorage").Events.EquipBest:InvokeServer()
+    wait(1)
+
+    end
+end
+
+function autoaccesndPunch()
+    while _G.autoaccesndPunch == true do 
+        local args = {
+    [1] = true
+}
+
+game:GetService("ReplicatedStorage").Events.AscendEvent:FireServer(unpack(args))
+
+        wait(30)
+
+    end
+end
+
+--Tabs--
+
+local MainTab = Window:MakeTab({
+	Name = "Main 🏠 ",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+local BABTab = Window:MakeTab({
+	Name = "Build A Boat ⛵️",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+local PunchTab = Window:MakeTab({
+	Name = "Punch Simulator 👊",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+--NOTIFY--
+
+OrionLib:MakeNotification({
+	Name = "Sucess!",
+	Content = "The Script Has Loaded Successfully!",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+
+--MAIN--
+
+local Section = MainTab:AddSection({
+	Name = "Player"
+})
+
+MainTab:AddTextbox({
+	Name = "Walk Speed",
+	Default = "16",
+	TextDisappear = false,
+	Callback = function(Value)
+		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+	end	  
+})
+
+MainTab:AddTextbox({
+	Name = "Jump Power",
+	Default = "50",
+	TextDisappear = false,
+	Callback = function(Value)
+		game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
+	end	  
+})
+
+
+MainTab:AddButton({
+	Name = "Kill",
+	Callback = function()
+      	game.Players.LocalPlayer.Character.Humanoid.Health = 0
+  	end    
+})
+
+local Section = MainTab:AddSection({
+	Name = "Other"
+})
+
+Tab:AddButton({
+	Name = "Destrot GUI",
+	Callback = function()
+      		print("Mapple Destroyed")
+         OrionLib:Destroy()
+  	end    
+})
+
+--Build A Boat--
+
+local Section = BABTab:AddSection({
+	Name = "Build A Boat For Tresure ⛵️"
+})
+
+BABTab:AddButton({
+	Name = "Farm Once",
+	Callback = function()
+      		Teleport(game:GetService("Workspace").BoatStages.NormalStages.CaveStage1.DarknessPart.CFrame)
+            wait(.5)
+            Teleport(game:GetService("Workspace").BoatStages.NormalStages.CaveStage2.DarknessPart.CFrame)
+            wait(.5)
+            Teleport(game:GetService("Workspace").BoatStages.NormalStages.CaveStage3.DarknessPart.CFrame)
+            wait(.5)
+            Teleport(game:GetService("Workspace").BoatStages.NormalStages.CaveStage4.DarknessPart.CFrame)
+            wait(.5)
+            Teleport(game:GetService("Workspace").BoatStages.NormalStages.CaveStage5.DarknessPart.CFrame)
+            wait(.5)
+            Teleport(game:GetService("Workspace").BoatStages.NormalStages.CaveStage6.DarknessPart.CFrame)
+            wait(.5)
+            Teleport(game:GetService("Workspace").BoatStages.NormalStages.CaveStage7.DarknessPart.CFrame)
+            wait(.5)
+            Teleport(game:GetService("Workspace").BoatStages.NormalStages.CaveStage8.DarknessPart.CFrame)
+            wait(.5)
+            Teleport(game:GetService("Workspace").BoatStages.NormalStages.CaveStage9.DarknessPart.CFrame)
+            wait(.5)
+            Teleport(game:GetService("Workspace").BoatStages.NormalStages.CaveStage10.DarknessPart.CFrame)
+  	end    
+})
+
+BABTab:AddToggle({
+	Name = "Auto Farm",
+	Default = false,
+	Callback = function(Value)
+		_G.autofarmBab = Value
+            autofarmBuild()
+	end    
+})
+
+--Punch Simulator-- 
+
+
+local Section = PunchTab:AddSection({
+	Name = "Punch Simulator 👊"
+})
+
+PunchTab:AddLabel("LEVEL 1 ONLY")
+
+PunchTab:AddToggle({
+	Name = "Auto Farm",
+	Default = false,
+	Callback = function(Value)
+		_G.autofarmPunch = Value
+            autofarmPunch()
+	end    
+})
+
+PunchTab:AddToggle({
+	Name = "Auto Ascend",
+	Default = false,
+	Callback = function(Value)
+		_G.autoaccesndPunch = Value
+            autoaccesndPunch()
+	end    
+})
+
+
+PunchTab:AddToggle({
+	Name = "Forest Egg 1",
+	Default = false,
+	Callback = function(Value)
+		_G.autogetegg1Punch = Value
+            autogetegg1Punch()
+	end    
+})
+
+PunchTab:AddToggle({
+	Name = "Forest Egg 2",
+	Default = false,
+	Callback = function(Value)
+		_G.autogetegg2Punch = Value
+            autogetegg2Punch()
+	end    
+})
+
+
+
+PunchTab:AddToggle({
+	Name = "Auto Get Best Glove",
+	Default = false,
+	Callback = function(Value)
+        _G.autogetbestglovePunch = Value
+            autogetbestglovePunch()
+
+    end
+})
+
+PunchTab:AddToggle({
+	Name = "Auto Equip Best Pet",
+	Default = false,
+	Callback = function(Value)
+        _G.autoequipPunch = Value
+            autoequipPunch()
+
+    end
+})
+
+
+
+OrionLib:Init()
