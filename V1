@@ -62,7 +62,7 @@ function autofarmBab()
     while _G.autofarmBab == true do
         workspace.ClaimRiverResultsGold:FireServer() 
     wait(1)
-	end
+    end
 end
 
 
