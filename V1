@@ -8,6 +8,8 @@ getgenv().TPPlace = "string"
 
 _G.autofarmBab = true
 
+_G.autoclaimBab = true
+
 _G.autofarmPunch = true
 
 _G.autogetegg1Punch = true
@@ -55,6 +57,11 @@ function autofarmBuild()
             wait(20)
     end
 end
+
+function autofarmBab()
+    while _G.autofarmBab == true do
+        workspace.ClaimRiverResultsGold:FireServer() 
+    wait(1)
 
 
 function autofarmPunch()
@@ -239,31 +246,16 @@ MainTab:AddButton({
 local Section = BABTab:AddSection({
 	Name = "Build A Boat For Tresure ⛵️"
 })
-
-BABTab:AddButton({
-	Name = "Farm Once",
-	Callback = function()
-      		Teleport(game:GetService("Workspace").BoatStages.NormalStages.CaveStage1.DarknessPart.CFrame)
-            wait(.5)
-            Teleport(game:GetService("Workspace").BoatStages.NormalStages.CaveStage2.DarknessPart.CFrame)
-            wait(.5)
-            Teleport(game:GetService("Workspace").BoatStages.NormalStages.CaveStage3.DarknessPart.CFrame)
-            wait(.5)
-            Teleport(game:GetService("Workspace").BoatStages.NormalStages.CaveStage4.DarknessPart.CFrame)
-            wait(.5)
-            Teleport(game:GetService("Workspace").BoatStages.NormalStages.CaveStage5.DarknessPart.CFrame)
-            wait(.5)
-            Teleport(game:GetService("Workspace").BoatStages.NormalStages.CaveStage6.DarknessPart.CFrame)
-            wait(.5)
-            Teleport(game:GetService("Workspace").BoatStages.NormalStages.CaveStage7.DarknessPart.CFrame)
-            wait(.5)
-            Teleport(game:GetService("Workspace").BoatStages.NormalStages.CaveStage8.DarknessPart.CFrame)
-            wait(.5)
-            Teleport(game:GetService("Workspace").BoatStages.NormalStages.CaveStage9.DarknessPart.CFrame)
-            wait(.5)
-            Teleport(game:GetService("Workspace").BoatStages.NormalStages.CaveStage10.DarknessPart.CFrame)
-  	end    
+BABTab:AddToggle({
+	Name = "Auto Claim",
+	Default = false,
+	Callback = function(Value)
+		_G.autoclaimBab = Value
+            autoclaimBab()
+	end    
 })
+
+
 
 BABTab:AddToggle({
 	Name = "Auto Farm",
